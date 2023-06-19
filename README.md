@@ -27,7 +27,7 @@ The content is relevant to the project.
 The presentation maintains audience interest. 
 Content, transitions, and conclusions flow smoothly within any time restrictions. 
 Installation and Usage
-Clone the repository: git clone https://github.com/your-username/project-repo.git
+Clone the repository
 Install the required dependencies: pip install -r requirements.txt
 Set up the chosen database and import the dataset.
 Configure the database connection in the Flask API.
