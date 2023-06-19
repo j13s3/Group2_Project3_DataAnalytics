@@ -29,12 +29,10 @@ Base.prepare(autoload_with=engine)
 
 print(Base.classes.keys())
 
-picnic_places = Base.classes.Picnic_Data
+picnic_places = Base.classes.Picnic_Spots
 
 # Spin up flask app
 app = Flask(__name__)
-
-engine = 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///Picnic_Database.sqlite"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -42,7 +40,7 @@ CORS(app)
 
 @app.route("/")
 def home():
-    return render_template("index.html", title = "Test")
+    return "index.html"
 
 # You need this - this allows you to actually run the app
 if __name__ == "__main__":
