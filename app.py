@@ -35,6 +35,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///Picnic_Database.sqlite"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 CORS(app)
 
+# Webpages
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -46,6 +47,10 @@ def home():
 # @app.route("/Sandeeps_Stuff")
 # def home():
 #     return render_template("Sandeep.html")
+
+# @app.route("/Tattwamasis_Stuff")
+# def home():
+#     return render_template("Tattwamasi.html")
 
 # Flask
 session = Session(engine)
@@ -59,11 +64,11 @@ def get_data():
     session.close()
     return jsonify(json_data)
 
-# @app.route("/api/geojson", methods = ['GET', 'POST'])
-# def geojson():
-#     data_path = "Data/picnic-settings.json"
-#     data_geojson = json.load(open(data_path))
-#     return jsonify(data_geojson)
+@app.route("/api/geojson", methods = ['GET', 'POST'])
+def geojson():
+    data_path = "Data/picnic-settings.json"
+    data_geojson = json.load(open(data_path))
+    return jsonify(data_geojson)
 
 # Required to run the app
 if __name__ == "__main__":
