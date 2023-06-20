@@ -44,9 +44,9 @@ def home():
 # def home():
 #     return render_template("Owen.html")
 
-# @app.route("/Sandeeps_Stuff")
-# def home():
-#     return render_template("Sandeep.html")
+@app.route("/bar_chart")
+def bar_chart():
+    return render_template("bar_chart.html")
 
 # @app.route("/Tattwamasis_Stuff")
 # def home():
