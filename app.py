@@ -59,11 +59,11 @@ def get_data():
     session.close()
     return jsonify(json_data)
 
-@app.route("/api/geojson", methods = ['GET', 'POST'])
-def geojson():
-    data_path = "Data/picnic-settings.json"
-    data_geojson = json.load(open(data_path))
-    return jsonify(data_geojson)
+# @app.route("/api/geojson", methods = ['GET', 'POST'])
+# def geojson():
+#     data_path = "Data/picnic-settings.json"
+#     data_geojson = json.load(open(data_path))
+#     return jsonify(data_geojson)
 
 # Required to run the app
 if __name__ == "__main__":
