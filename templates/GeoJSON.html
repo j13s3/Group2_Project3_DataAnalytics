@@ -1,30 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Bar Chart Visualisations</title>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+  <meta charset="utf-8">
+  <title>GeoJSON Visualisation</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+  <!-- Leaflet JavaScript code -->
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+  <!-- D3 Library -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
 
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/index_style.css') }}">
-  
-  <style>
-    #map {
-      height: 600px;
-    }
-    #barChart1, #barchart2 {
-      height: 400px;
-    }
-    #dropdown {
-      margin-bottom: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/GeoJSON_style.css') }}">
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="css/GeoJSON_style.css">
 </head>
+
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -61,19 +65,11 @@
     </div>
   </nav>
 
-  <h1>Bar Chart Visualisations</h1>
-
-  <label for="dropdown">Sort by Suburb:</label>
-  <select id="dropdown"></select>
-  <h2>Map</h2>
+  <!-- The div where we'll insert our map -->
   <div id="map"></div>
 
-  <h2>Distribution of Amenity Types in each Suburb</h2>
-  <div id="barChart1"></div>
-
-  <h2>Number of Parks per Suburb</h2>
-  <div id="barChart2"></div>
-
-  <script src="static/js/bar_chart_logic.js"></script>
+  <!-- JavaScript file -->
+  <script type="text/javascript" src="js/GeoJSON_logic.js"></script>
 </body>
+
 </html>

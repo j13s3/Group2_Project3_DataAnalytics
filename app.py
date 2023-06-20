@@ -48,9 +48,9 @@ def home():
 def bar_chart():
     return render_template("bar_chart.html")
 
-# @app.route("/Tattwamasis_Stuff")
-# def home():
-#     return render_template("Tattwamasi.html")
+@app.route("/GeoJSON")
+def GeoJSON():
+    return render_template("GeoJSON.html")
 
 # Flask
 session = Session(engine)
