@@ -1,34 +1,54 @@
 // Store our API endpoint as queryUrl.
-let queryUrl = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2021-01-01&endtime=2021-01-02&maxlongitude=-69.52148437&minlongitude=-123.83789062&maxlatitude=48.74894534&minlatitude=25.16517337";
+let queryUrl = "https://yo3dxhxhsj.execute-api.ap-southeast-2.amazonaws.com/prod/tattwamasi-project"
 
 // Perform a GET request to the query URL/
 d3.json(queryUrl).then(function (data) {
-  console.log(data)
-  // Once we get a response, send the data.features object to the createFeatures function.
-  createFeatures(data.features);
+    const geojsonData = {
+        type: 'FeatureCollection',
+        features: []
+      };
+
+      // Iterate over the results and convert them to GeoJSON features
+      data.results.forEach(result => {
+        const feature = {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [result.geometry.location.lng, result.geometry.location.lat]
+          },
+          properties: {
+            name: result.name,
+            vicinity: result.vicinity,
+            rating: result.rating
+          }
+        };
+
+        geojsonData.features.push(feature);
+      });
+      createFeatures(geojsonData);
 });
 
-function createFeatures(earthquakeData) {
-
-  console.log(earthquakeData);
+function createFeatures(PicnicplacesData) {
+    console.log("PicnicplacesData: ", PicnicplacesData)
+  console.log(PicnicplacesData);
   // Define a function that we want to run once for each feature in the features array.
-  // Give each feature a popup that describes the place and time of the earthquake.
+  // Give each feature a popup that describes the place and time of the Picnicplaces.
   function onEachFeature(feature, layer) {
-    layer.bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}</p>`);
+    layer.bindPopup(`<h3>${feature.properties.name}</h3><hr><p>Rating: ${feature.properties.rating}</p>`);
   }
 
-  // Create a GeoJSON layer that contains the features array on the earthquakeData object.
+  // Create a GeoJSON layer that contains the features array on the picnicplacesData object.
   // Run the onEachFeature function once for each piece of data in the array.
-  let earthquakes = L.geoJSON(earthquakeData, {
+  let Picnicplaces = L.geoJSON(PicnicplacesData, {
     onEachFeature: onEachFeature
   });
 
+
   // Send our earthquakes layer to the createMap function/
-  console.log(earthquakeData);
-  createMap(earthquakes);
+  createMap(Picnicplaces);
 }
 
-function createMap(earthquakes) {
+function createMap(Picnicplaces) {
 
   // Create the base layers.
   let street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -47,15 +67,15 @@ function createMap(earthquakes) {
 
   // Create an overlay object to hold our overlay.
   let overlayMaps = {
-    Earthquakes: earthquakes
+    picnicplacesdata: Picnicplaces
   };
 
-  // Create our map, giving it the streetmap and earthquakes layers to display on load.
+  // Create our map, giving it the streetmap and picnicplaces layers to display on load.
   let myMap = L.map("map", {
     center: [
-      37.09, -95.71
+        -37.8136276, 144.9630576
     ],
-    zoom: 5,
+    zoom: 16,
     layers: [street]
   });
 
@@ -66,4 +86,13 @@ function createMap(earthquakes) {
     collapsed: false
   }).addTo(myMap);
 
-}
+};
+
+
+
+
+
+
+
+
+
