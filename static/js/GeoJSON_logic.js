@@ -34,7 +34,7 @@ function createFeatures(PicnicplacesData) {
   // Define a function that we want to run once for each feature in the features array.
   // Give each feature a popup that describes the place and time of the Picnicplaces.
   function onEachFeature(feature, layer) {
-    layer.bindPopup(`<h3>${feature.properties.name}</h3><hr><p>Rating: ${feature.properties.rating}</p>`);
+    layer.bindPopup(`<h3>${feature.properties.name}</h3><hr><p>vicinity: ${feature.properties.vicinity}</p>`);
   }
 
   // Create a GeoJSON layer that contains the features array on the picnicplacesData object.
