@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ward Bar Chart</title>
+  <script src="{{ url_for('static', filename='static/js/ward_bar_chart_logic.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='static/css/ward_bar_chart_style.css') }}">
+</head>
+<body>
+  <!-- Your HTML content here -->
+  <div id="chart"></div>
+  <!-- Your JavaScript code to create the bar chart using D3.js -->
+  <script>
+
+    // Select the container element
+    const container = d3.select("#chart");
+
+    // Fetch the data from the API
+    d3.json("/api/bar_chart_data").then(data => {
+    });
+  </script>
+</body>
+</html>

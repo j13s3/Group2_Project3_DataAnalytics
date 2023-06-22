@@ -1,0 +1,36 @@
+/* styles.css */
+
+/* Style the container element */
+#chart {
+    width: 500px; /* Set the width of the container */
+    height: 400px; /* Set the height of the container */
+  }
+  
+  /* Style the bars */
+  .bar {
+    fill: steelblue; /* Set the color of the bars */
+  }
+  
+  /* Style the x-axis ticks */
+  .x-axis .tick {
+    font-size: 12px; /* Set the font size of the ticks */
+  }
+  
+  /* Style the y-axis ticks */
+  .y-axis .tick {
+    font-size: 12px; /* Set the font size of the ticks */
+  }
+  
+  /* Style the x-axis label */
+  .x-label {
+    font-size: 14px; /* Set the font size of the label */
+    text-anchor: middle; /* Align the label to the middle of the x-axis */
+  }
+  
+  /* Style the y-axis label */
+  .y-label {
+    font-size: 14px; /* Set the font size of the label */
+    text-anchor: middle; /* Align the label to the middle of the y-axis */
+    transform: rotate(-90deg); /* Rotate the label vertically */
+  }
+  

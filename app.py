@@ -40,9 +40,9 @@ CORS(app)
 def home():
     return render_template("index.html")
 
-# @app.route("/Owens_Stuff")
-# def home():
-#     return render_template("Owen.html")
+@app.route("/ward_bar_chart")
+def ward_bar_chart():
+    return render_template(".html")
 
 @app.route("/bar_chart")
 def bar_chart():
