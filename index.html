@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chart.js Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <canvas id="myChart" width="400" height="200"></canvas>
+
+  <script>
+    // Extracting data from the provided dataset
+    const dataset = {
+      results: [
+        {
+          name: "Melbourne",
+          rating: 0,
+          user_ratings_total: 0
+        },
+        {
+          name: "Causeway 353 Hotel",
+          rating: 4,
+          user_ratings_total: 694
+        },
+        {
+          name: "Novotel Melbourne on Collins",
+          rating: 4.2,
+          user_ratings_total: 1958
+        },
+        {
+          name: "The Victoria Hotel",
+          rating: 4.1,
+          user_ratings_total: 2274
+        },
+        {
+          name: "Mantra on Little Bourke Melbourne",
+          rating: 4.2,
+          user_ratings_total: 689
+        },
+        {
+          name: "Mantra on Russell Melbourne",
+          rating: 4.3,
+          user_ratings_total: 871
+        },
+        {
+          name: "Oaks Melbourne on Market Hotel",
+          rating: 4.1,
+          user_ratings_total: 547
+        }
+      ]
+    };
+
+    // Extracting labels and data for chart
+    const labels = dataset.results.map((item) => item.name);
+    const ratings = dataset.results.map((item) => item.rating);
+    const userRatings = dataset.results.map((item) => item.user_ratings_total);
+
+    // Creating a bar chart
+    const ctx = document.getElementById('myChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Rating',
+            data: ratings,
+            backgroundColor: 'rgba(75, 192, 192, 0.6)'
+          },
+          {
+            label: 'User Ratings',
+            data: userRatings,
+            backgroundColor: 'rgba(54, 162, 235, 0.6)'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
