@@ -75,7 +75,7 @@ function createMap(Picnicplaces) {
     center: [
         -37.8136276, 144.9630576
     ],
-    zoom: 16,
+    zoom: 13,
     layers: [street]
   });
 
